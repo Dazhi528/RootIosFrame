@@ -21,11 +21,15 @@ class ViewController: UIViewController {
         UtHttp.api("TmsLogin", BnRqstLogin("simon", UtHttp.md5Mid16("123456")))
             .mapperObject(type: BnUser.self) // 解析成BnUser对象
             .subscribe(onNext: { bnRsps in
-                print(bnRsps)
+                UtHttp.putBnUser(bnRsps)
             }, onError: { error in
                 print(error.rawString())
             }, onCompleted: {
-                print("完成")
+                if let temp=UtHttp.getBnUser() {
+                    print(temp)
+                }else {
+                    print("bnUser nil")
+                }
             })
             .disposed(by: disposeBag)
     }
