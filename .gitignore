@@ -1,0 +1,16 @@
+*.mode*v*
+*.pbxuser
+*.xccheckout
+*.xcbkptlist
+*.xcscheme
+*.xcworkspacedata
+*.xcuserstate
+build/
+Pods/
+Podfile.lock
+.DS_Store
+._.*
+xcuserdata
+DerivedData/
+.idea/
+iOSInjectionProject/
