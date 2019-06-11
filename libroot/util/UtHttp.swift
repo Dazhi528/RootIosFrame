@@ -94,11 +94,13 @@ public class UtHttp {
                              parameters: getHttpBody(strCmd, any),
                              encoding: URLEncoding.default,
                              headers: headers)//Observable<(HTTPURLResponse, String)>
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             .map{$1} //取第二个参数(json字符串)
             .mapperObject(type: BnHttpResponse.self) //解析成BnHttpResponse对象
             .map{$0.strBody ?? ""} //取出body的json字符串
+            // .observeOn(MainScheduler.instance)
     }
-    
+
     
     // MARK: - 存取登录响应类
     public static func putBnUser(_ bnUser: BnUser?) {
