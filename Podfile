@@ -30,4 +30,10 @@ target 'libroot' do
   #MD5
   pod 'SwiftHash'
   
+  #提示(吐司)
+  pod 'SVProgressHUD'
+  
+  #空页面
+  pod 'DZNEmptyDataSet'
+  
 end

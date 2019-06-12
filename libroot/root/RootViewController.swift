@@ -6,10 +6,12 @@
 //  Copyright © 2019 Dazhi528. All rights reserved.
 //
 import UIKit
+import RxSwift
 
-class RootViewController: UIViewController {
+public class RootViewController: UIViewController {
+    public let disposeBag = DisposeBag()
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarUI()
     }
