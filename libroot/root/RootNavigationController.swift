@@ -7,13 +7,13 @@
 //
 import UIKit
 
-class RootNavigationController: UINavigationController {
+public class RootNavigationController: UINavigationController {
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
+    override public var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
     

@@ -88,7 +88,9 @@ public class UtHttp {
         return parameters
     }
     
-    public static func api(_ strCmd: String, _ any: Mappable) -> Observable<String> {
+    public static func api(_ strCmd: String, _ any: Mappable, msg: String="") -> Observable<String> {
+        UtRoot.loadingShow(msg)
+        //
         let headers = ["User-Agent": getHttpHead()]
         return requestString(.post, URL(string: APP_URL)!,
                              parameters: getHttpBody(strCmd, any),
@@ -97,7 +99,11 @@ public class UtHttp {
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             .map{$1} //取第二个参数(json字符串)
             .mapperObject(type: BnHttpResponse.self) //解析成BnHttpResponse对象
-            .map{$0.strBody ?? ""} //取出body的json字符串
+            .map{
+                if($0.intCode != 0) {
+                    throw RxCatch.error(errorInfo: "code:\(String($0.intCode!))\n\($0.strMsg ?? "")\t\($0.strSolution ?? "")")
+                }
+                return $0.strBody ?? ""} //取出body的json字符串
             // .observeOn(MainScheduler.instance)
     }
 
