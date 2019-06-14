@@ -16,18 +16,12 @@ class TestViewController: RootViewController {
     }
     
     @IBAction func onClickTest(_ sender: UIButton) {
-        UtHttp.api("TmsLogin", BnRqstLogin("simon", UtHttp.md5Mid16("12345")), msg: "加载中")
+        UtHttp.api("TmsLogin", BnRqstLogin("simon", UtHttp.md5Mid16("123456")), msg: "加载中")
             .mapperObject(type: BnUser.self) // 解析成BnUser对象
             .observeOn(MainScheduler.instance) // 切换到主线程
-            .subscribe(onNext: { bnRsps in
+            .customSubscribe(disposeBag ,next: { bnRsps in
                 UtHttp.putBnUser(bnRsps)
-                //
-                UtRoot.loadingShut()
-            }, onError: { error in
-                UtRoot.loadingShut()
-                UtRoot.toastShort(error.rawString())
             })
-            .disposed(by: disposeBag)
     }
     
     
