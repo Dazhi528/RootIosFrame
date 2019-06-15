@@ -31,7 +31,7 @@ public extension Observable where E: Any {
     //将JSON数据转成对象
     func mapperObject<T>(type: T.Type) -> Observable<T> where T:Mappable {
         return self.map { (element) -> T in
-            print(element)
+            UtRoot.log(element)
             guard let parsedObject = T(JSONString: element as! String) else {
                 throw RxCatch.error(errorInfo: "Failure of parsing")
             }
@@ -42,7 +42,7 @@ public extension Observable where E: Any {
     //将JSON数据转成数组
     func mapperArray<T>(type: T.Type) -> Observable<[T]> where T:Mappable {
         return self.map { (element) -> [T] in
-            print(element)
+            UtRoot.log(element)
             guard let parsedArray = [T](JSONString: element as! String) else {
                 throw RxCatch.error(errorInfo: "Failure of parsing")
             }
@@ -61,9 +61,7 @@ public extension Observable where E: Any {
             // 打印日志，显示错误
             let erStr=er.rawString()
             UtRoot.toastShort(erStr)
-            #if BOOBEBUG
-            print(erStr)
-            #endif
+            UtRoot.log(erStr)
             // 如果传入报错闭包，则回到
             if let mError = error {
                 mError(er)

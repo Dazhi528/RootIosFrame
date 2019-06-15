@@ -88,7 +88,7 @@ public class UtHttp {
         return parameters
     }
     
-    public static func api(_ strCmd: String, _ any: Mappable, msg: String="") -> Observable<String> {
+    public static func api(_ strCmd: String, _ any: Mappable, msg: String?=nil) -> Observable<String> {
         UtRoot.loadingShow(msg)
         //
         let headers = ["User-Agent": getHttpHead()]

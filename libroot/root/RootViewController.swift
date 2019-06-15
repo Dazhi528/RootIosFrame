@@ -16,6 +16,40 @@ public class RootViewController: UIViewController {
         setNavigationBarUI()
     }
     
+    
+    /*
+     * 常用消息窗口
+     * 调用实例：
+     * self.msgBoxShow(strBnUser, esc: "", escCall: { _ in
+     *  UtRoot.toastShort("销毁方法回调")
+     * })
+     */
+    public func msgBoxShow(_ msg: String,
+                           ent: String?=nil, entCall: ((UIAlertAction)->Void)?=nil,
+                           esc: String?=nil, escCall: ((UIAlertAction)->Void)?=nil) {
+        // 创建对话框控制器
+        let dialog=UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+        // 创建动作
+        let actionEnt=UIAlertAction(
+            title: ent ?? NSLocalizedString("libroot_bt_ent", comment: ""),
+            style: .default, handler: entCall)
+        var actionEsc: UIAlertAction?=nil
+        if(esc != nil){
+            actionEsc=UIAlertAction(title: esc=="" ? NSLocalizedString("libroot_bt_esc", comment: "") : esc,
+                                    style: .cancel, handler: escCall)
+        }
+        // 添加动作
+        dialog.addAction(actionEnt)
+        if(actionEsc != nil) {
+            dialog.addAction(actionEsc!)
+        }
+        // 显示对话框
+//        weak var weakSelf = self
+//        weakSelf?.present(dialog, animated: true, completion: nil)
+        self.present(dialog, animated: true, completion: nil)
+    }
+        
+    
     private func setNavigationBarUI()->Void{
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white]

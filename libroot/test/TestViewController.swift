@@ -16,11 +16,15 @@ class TestViewController: RootViewController {
     }
     
     @IBAction func onClickTest(_ sender: UIButton) {
-        UtHttp.api("TmsLogin", BnRqstLogin("simon", UtHttp.md5Mid16("123456")), msg: "加载中")
+        UtHttp.api("TmsLogin", BnRqstLogin("simon", UtHttp.md5Mid16("123456")))
             .mapperObject(type: BnUser.self) // 解析成BnUser对象
             .observeOn(MainScheduler.instance) // 切换到主线程
             .customSubscribe(disposeBag ,next: { bnRsps in
-                UtHttp.putBnUser(bnRsps)
+                if let strBnUser = bnRsps.toJSONString() {
+                    self.msgBoxShow(strBnUser, ent: "知道了", esc: "", escCall: { _ in
+                        UtRoot.toastShort("销毁方法回调")
+                    })
+                }
             })
     }
     

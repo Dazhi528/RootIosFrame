@@ -10,6 +10,7 @@
 		641AE62B22A75C2B00C3CF6D /* BnHttpBodyHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641AE62A22A75C2B00C3CF6D /* BnHttpBodyHead.swift */; };
 		641AE62D22A76EF300C3CF6D /* UtRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641AE62C22A76EF300C3CF6D /* UtRoot.swift */; };
 		641AE63022A770F100C3CF6D /* UtHttp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641AE62F22A770F100C3CF6D /* UtHttp+Extension.swift */; };
+		642BB08E22B3A5B000A4E639 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 642BB09022B3A5B000A4E639 /* Localizable.strings */; };
 		643841D922AF86A20038B034 /* RootApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643841D822AF86A20038B034 /* RootApp.swift */; };
 		644367C222ADF3B400924B41 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644367C122ADF3B400924B41 /* RootViewController.swift */; };
 		644367C422AE0B7000924B41 /* UtConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644367C322AE0B7000924B41 /* UtConst.swift */; };
@@ -35,6 +36,7 @@
 		641AE62A22A75C2B00C3CF6D /* BnHttpBodyHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BnHttpBodyHead.swift; sourceTree = "<group>"; };
 		641AE62C22A76EF300C3CF6D /* UtRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtRoot.swift; sourceTree = "<group>"; };
 		641AE62F22A770F100C3CF6D /* UtHttp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UtHttp+Extension.swift"; sourceTree = "<group>"; };
+		642BB09122B3A5BF00A4E639 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		643841D822AF86A20038B034 /* RootApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootApp.swift; sourceTree = "<group>"; };
 		644367C122ADF3B400924B41 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		644367C322AE0B7000924B41 /* UtConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtConst.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				64EC667A22A644A2008493A2 /* util */,
 				64E4C0CE22A4A91400F7E75F /* Assets.xcassets */,
 				64E4C0D322A4A91400F7E75F /* Info.plist */,
+				642BB09022B3A5B000A4E639 /* Localizable.strings */,
 			);
 			path = libroot;
 			sourceTree = "<group>";
@@ -214,7 +217,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				"zh-Hans",
 			);
 			mainGroup = 64E4C0BB22A4A91300F7E75F;
 			productRefGroup = 64E4C0C522A4A91300F7E75F /* Products */;
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64E4C0CF22A4A91400F7E75F /* Assets.xcassets in Resources */,
+				642BB08E22B3A5B000A4E639 /* Localizable.strings in Resources */,
 				64D1790422B0EB9300932FDF /* TestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +339,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		642BB09022B3A5B000A4E639 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				642BB09122B3A5BF00A4E639 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		64E4C0D422A4A91400F7E75F /* Debug */ = {
@@ -467,7 +482,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D BOOBEBUG";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dazhi.libroot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

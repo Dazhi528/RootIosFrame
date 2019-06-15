@@ -29,10 +29,23 @@ public class UtRoot {
     }
     
     /*
+     * ========日志输出========
+     */
+    public static func log(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+        #if DEBUG
+            print(items, separator, terminator)
+        #endif
+    }
+    
+    /*
      * ========UI窗口控制区========
      */
-    public static func loadingShow(_ msg: String) {
-        SVProgressHUD.show(withStatus: msg)
+    public static func loadingShow(_ msg: String?=nil) {
+        if let strMsg=msg {
+            SVProgressHUD.show(withStatus: strMsg)
+        }else {
+            SVProgressHUD.show()
+        }
     }
     public static func loadingShut() {
         SVProgressHUD.dismiss()
