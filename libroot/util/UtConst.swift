@@ -9,11 +9,11 @@ import UIKit
 import DeviceKit
 
 // 屏幕宽高
-public let SCREEN_WIDTH  = UIScreen.main.bounds.size.width
-public let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
+public let kScreenWidth = UIScreen.main.bounds.size.width
+public let kScreenHeight = UIScreen.main.bounds.size.height
 
 // 安全区域高度
-public let safe_area_insets:UIEdgeInsets = {
+public let kSafeAreaInsets:UIEdgeInsets = {
     if #available(iOS 12.0, *){
         return UIWindow().safeAreaInsets
     }
@@ -24,7 +24,7 @@ public let safe_area_insets:UIEdgeInsets = {
 }()
 
 // 导航栏高度
-public let navigationbar_height:CGFloat = 44 + safe_area_insets.top
+public let kNavigationbarHeight:CGFloat = 44 + kSafeAreaInsets.top
 
 
 /*

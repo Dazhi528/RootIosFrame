@@ -15,7 +15,7 @@ class TestViewController: RootViewController {
         self.title = "测试页面"
     }
     
-    @IBAction func onClickTest(_ sender: UIButton) {
+    @IBAction func onClickTestApiLogin(_ sender: UIButton) {
         UtHttp.api("TmsLogin", BnRqstLogin("simon", UtHttp.md5Mid16("123456")))
             .mapperObject(type: BnUser.self) // 解析成BnUser对象
             .observeOn(MainScheduler.instance) // 切换到主线程
@@ -28,5 +28,12 @@ class TestViewController: RootViewController {
             })
     }
     
+    
+    @IBAction func onClickTestToScanPage(_ sender: UIButton) {
+        let scanVC = RootScanViewController()
+       // scanVC.scanResultDelegate = self
+        //scanVC.fd_prefersNavigationBarHidden = true
+        self.navigationController?.pushViewController(scanVC, animated: true)
+    }
     
 }

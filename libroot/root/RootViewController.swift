@@ -55,7 +55,7 @@ public class RootViewController: UIViewController {
             [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = UIColor.white
         let backgroundImage = UIColor(navigationbar_bg)
-            .asImage(CGSize(width: SCREEN_WIDTH, height: navigationbar_height))
+            .asImage(CGSize(width: kScreenWidth, height: kNavigationbarHeight))
         self.navigationController?.navigationBar
             .setBackgroundImage(backgroundImage, for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage.init()

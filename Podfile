@@ -36,4 +36,7 @@ target 'libroot' do
   #空页面
   pod 'DZNEmptyDataSet'
   
+  #扫描条码和二维码
+  pod 'swiftScan'
+  
 end
