@@ -16,37 +16,54 @@ public enum EnumButtonImagePosition {
 
 public extension UIButton {
     
-    func setImagePosition(_ image: UIImage?, _ title: String, _ state: UIControl.State, _ position: EnumButtonImagePosition, _ imageTitleSpace: CGFloat=0) {
+    func setImagePosition(_ image: UIImage?, _ title: String, _ state: UIControl.State, _ position: EnumButtonImagePosition, _ space: CGFloat=0) {
         self.setImage(image, for: state)
         self.setTitle(title, for: state)
+        // 按钮宽度
+        let buttonWidth=self.frame.size.width
         // imageView宽高
-        let imageWidth = self.imageView?.frame.size.width
-        let imageHeight = self.imageView?.frame.size.height
+        var imageWidth: CGFloat! = 0.0
+        var imageHeight: CGFloat! = 0.0
+        imageWidth = self.imageView?.frame.size.width
+        imageHeight = self.imageView?.frame.size.height
         // titleLabel宽高
         var labelWidth: CGFloat! = 0.0
         var labelHeight: CGFloat! = 0.0
         labelWidth = self.titleLabel?.intrinsicContentSize.width
         labelHeight = self.titleLabel?.intrinsicContentSize.height
+//        let titleFont = self.titleLabel?.font!
+//        let titleSize = title.size(withAttributes: [NSAttributedString.Key.font: titleFont!])
+//        let labelWidth=titleSize.width
+//        let labelHeight=titleSize.height
         //初始化imageEdgeInsets和labelEdgeInsets
         var imageEdgeInsets = UIEdgeInsets.zero
         var labelEdgeInsets = UIEdgeInsets.zero
         //根据style和space得到imageEdgeInsets和labelEdgeInsets的值
         switch position {
         case .top:
-            imageEdgeInsets = UIEdgeInsets(top: -labelHeight-imageTitleSpace/2, left: 0, bottom: 0, right: -labelWidth)
-            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth!, bottom: -imageHeight!-imageTitleSpace/2, right: 0)
+            imageEdgeInsets = UIEdgeInsets(top: -labelHeight-space/2, left: 0, bottom: 0, right: -labelWidth)
+            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth!, bottom: -imageHeight-space/2, right: 0)
             break;
         case .left:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: -imageTitleSpace/2, bottom: 0, right: imageTitleSpace)
-            labelEdgeInsets = UIEdgeInsets(top: 0, left: imageTitleSpace/2, bottom: 0, right: -imageTitleSpace/2)
+            let restSpaceHalf=(buttonWidth-imageWidth-labelWidth-space)/2
+            if(restSpaceHalf<0){
+                var offset = labelWidth + restSpaceHalf - buttonWidth/2
+                offset = offset>0 ? offset : 0
+                //
+                imageEdgeInsets = UIEdgeInsets(top: 0, left: restSpaceHalf, bottom: 0, right: 0)
+                labelEdgeInsets = UIEdgeInsets(top: 0, left: -offset, bottom: 0, right: restSpaceHalf-offset)
+            }else {
+                imageEdgeInsets = UIEdgeInsets(top: 0, left: -space/2, bottom: 0, right: 0)
+                labelEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -space/2)
+            }
             break;
         case .bottom:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -labelHeight!-imageTitleSpace/2, right: -labelWidth)
-            labelEdgeInsets = UIEdgeInsets(top: -imageHeight!-imageTitleSpace/2, left: -imageWidth!, bottom: 0, right: 0)
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -labelHeight-space/2, right: -labelWidth)
+            labelEdgeInsets = UIEdgeInsets(top: -imageHeight-space/2, left: -imageWidth, bottom: 0, right: 0)
             break;
         case .right:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth+imageTitleSpace/2, bottom: 0, right: -labelWidth-imageTitleSpace/2)
-            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth!-imageTitleSpace/2, bottom: 0, right: imageWidth!+imageTitleSpace/2)
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -labelWidth*2-space/2)
+            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth*2-space/2, bottom: 0, right: 0)
             break;
         }
         self.titleEdgeInsets = labelEdgeInsets
