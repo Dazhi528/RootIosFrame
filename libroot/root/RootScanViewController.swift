@@ -18,9 +18,9 @@ public class RootScanViewController : LBXScanViewController {
         let closeButton = UIButton(type: .custom)
         closeButton.size = CGSize(width: 60, height: 60)
         closeButton.titleLabel?.font = UtRoot.defaultBoldFontWithSize(14)
-        closeButton.set(image: UIImage(named: "ico_scan_close"),
-                        title: NSLocalizedString("libroot_scan_close", comment: ""),
-                        state: .normal, space: 10, titlePosition: .bottom)
+        closeButton.setImagePosition(UIImage(named: "ico_scan_close"),
+                                     NSLocalizedString("libroot_scan_close", comment: ""),
+                                     .normal, .top, 10)
         return closeButton
     }()
     
@@ -28,12 +28,12 @@ public class RootScanViewController : LBXScanViewController {
         let torchButton = UIButton(type: .custom)
         torchButton.size = CGSize(width: 60, height: 60)
         torchButton.titleLabel?.font = UtRoot.defaultBoldFontWithSize(14)
-        torchButton.set(image: UIImage(named: "ico_scan_torch"),
-                        title: NSLocalizedString("libroot_torch_open", comment: ""),
-                        state: .normal, space: 10, titlePosition: .bottom)
-        torchButton.set(image: UIImage(named: "ico_scan_torch"),
-                        title: NSLocalizedString("libroot_torch_close", comment: ""),
-                        state: .selected, space: 10, titlePosition: .bottom)
+        torchButton.setImagePosition(UIImage(named: "ico_scan_torch"),
+                                     NSLocalizedString("libroot_torch_open", comment: ""),
+                                     .normal, .top, 10)
+        torchButton.setImagePosition(UIImage(named: "ico_scan_torch"),
+                                     NSLocalizedString("libroot_torch_close", comment: ""),
+                                     .selected, .top, 10)
         return torchButton
     }()
     
@@ -55,7 +55,8 @@ public class RootScanViewController : LBXScanViewController {
         self.scanStyle?.photoframeAngleStyle = .On;
         self.scanStyle?.colorRetangleLine = .clear
         self.isOpenInterestRect = true
-        self.edgesForExtendedLayout = UIRectEdge.top
+        //
+        // self.edgesForExtendedLayout = UIRectEdge.top
         // 按钮位置
         closeButton.left = 67
         closeButton.bottom = kScreenHeight - kSafeAreaInsets.bottom - 55
@@ -63,6 +64,25 @@ public class RootScanViewController : LBXScanViewController {
         torchButton.bottom = kScreenHeight - kSafeAreaInsets.bottom - 55
         closeButton.addTarget(self, action: #selector(closeScan), for: .touchUpInside)
         torchButton.addTarget(self, action: #selector(torchCtrl), for: .touchUpInside)
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // 将显示时，隐藏导航条
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // 已显示时，添加按钮
+        self.view.addSubview(closeButton)
+        self.view.addSubview(torchButton)
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // 将销毁时，显示导航条，不影响其他有导航条的页面
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     

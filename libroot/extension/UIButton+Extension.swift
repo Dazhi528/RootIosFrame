@@ -7,53 +7,50 @@
 //
 import UIKit
 
-public enum EnumButtonTitlePosition {
-    case top // 标题在上，图片在下，位于按钮中间
-    case left // 标题在左，图片在右，位于按钮中间
-    case right // 默认位置，标题在右，图片在左，位于按钮中间
-    case bottom // 标题在下，图片在上，位于按钮中间
+public enum EnumButtonImagePosition {
+    case top
+    case left
+    case right
+    case bottom
 }
 
 public extension UIButton {
     
-    /*
-     * image按钮图片； title按钮标题；
-     * state控制状态，例：.normal .selected
-     * space图片与标题间隙
-     * titlePosition标题位置
-     */
-    func set(image: UIImage?, title: String,
-             state: UIControl.State,
-             space: CGFloat = 0,
-             titlePosition: EnumButtonTitlePosition = .right){
+    func setImagePosition(_ image: UIImage?, _ title: String, _ state: UIControl.State, _ position: EnumButtonImagePosition, _ imageTitleSpace: CGFloat=0) {
         self.setImage(image, for: state)
         self.setTitle(title, for: state)
-        // 位置控制
-        let imageSize=self.imageRect(forContentRect: self.frame).size
-        let titleSize=self.titleRect(forContentRect: self.frame).size
-        var imageInsets: UIEdgeInsets
-        var titleInsets: UIEdgeInsets
-        //
-        switch (titlePosition){
+        // imageView宽高
+        let imageWidth = self.imageView?.frame.size.width
+        let imageHeight = self.imageView?.frame.size.height
+        // titleLabel宽高
+        var labelWidth: CGFloat! = 0.0
+        var labelHeight: CGFloat! = 0.0
+        labelWidth = self.titleLabel?.intrinsicContentSize.width
+        labelHeight = self.titleLabel?.intrinsicContentSize.height
+        //初始化imageEdgeInsets和labelEdgeInsets
+        var imageEdgeInsets = UIEdgeInsets.zero
+        var labelEdgeInsets = UIEdgeInsets.zero
+        //根据style和space得到imageEdgeInsets和labelEdgeInsets的值
+        switch position {
         case .top:
-            titleInsets = UIEdgeInsets(top: -(imageSize.height + titleSize.height + space),
-                                       left: -(imageSize.width), bottom: 0, right: 0)
-            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
-        case .bottom:
-            titleInsets = UIEdgeInsets(top: (imageSize.height + titleSize.height + space),
-                                       left: -(imageSize.width), bottom: 0, right: 0)
-            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
+            imageEdgeInsets = UIEdgeInsets(top: -labelHeight-imageTitleSpace/2, left: 0, bottom: 0, right: -labelWidth)
+            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth!, bottom: -imageHeight!-imageTitleSpace/2, right: 0)
+            break;
         case .left:
-            titleInsets = UIEdgeInsets(top: 0, left: -(imageSize.width * 2), bottom: 0, right: 0)
-            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0,
-                                       right: -(titleSize.width * 2 + space))
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: -imageTitleSpace/2, bottom: 0, right: imageTitleSpace)
+            labelEdgeInsets = UIEdgeInsets(top: 0, left: imageTitleSpace/2, bottom: 0, right: -imageTitleSpace/2)
+            break;
+        case .bottom:
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -labelHeight!-imageTitleSpace/2, right: -labelWidth)
+            labelEdgeInsets = UIEdgeInsets(top: -imageHeight!-imageTitleSpace/2, left: -imageWidth!, bottom: 0, right: 0)
+            break;
         case .right:
-            titleInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -space)
-            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth+imageTitleSpace/2, bottom: 0, right: -labelWidth-imageTitleSpace/2)
+            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth!-imageTitleSpace/2, bottom: 0, right: imageWidth!+imageTitleSpace/2)
+            break;
         }
-        //
-        self.titleEdgeInsets = titleInsets
-        self.imageEdgeInsets = imageInsets
+        self.titleEdgeInsets = labelEdgeInsets
+        self.imageEdgeInsets = imageEdgeInsets
     }
     
     
