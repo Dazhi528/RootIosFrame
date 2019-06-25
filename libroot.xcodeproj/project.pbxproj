@@ -14,6 +14,9 @@
 		642BB08E22B3A5B000A4E639 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 642BB09022B3A5B000A4E639 /* Localizable.strings */; };
 		6436D0C822C1A7740066535E /* TestListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6436D0C622C1A7740066535E /* TestListController.swift */; };
 		6436D0C922C1A7740066535E /* TestListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6436D0C722C1A7740066535E /* TestListController.xib */; };
+		6436D0CF22C1CECB0066535E /* CellTestList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6436D0CE22C1CECB0066535E /* CellTestList.swift */; };
+		6436D0D322C1CF290066535E /* CellTestList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6436D0D222C1CF290066535E /* CellTestList.xib */; };
+		6436D0D522C20A210066535E /* ControlEvent+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6436D0D422C20A210066535E /* ControlEvent+Extension.swift */; };
 		643841D922AF86A20038B034 /* RootApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643841D822AF86A20038B034 /* RootApp.swift */; };
 		644367C222ADF3B400924B41 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644367C122ADF3B400924B41 /* RootViewController.swift */; };
 		644367C422AE0B7000924B41 /* UtConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644367C322AE0B7000924B41 /* UtConst.swift */; };
@@ -45,6 +48,9 @@
 		642BB09122B3A5BF00A4E639 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6436D0C622C1A7740066535E /* TestListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListController.swift; sourceTree = "<group>"; };
 		6436D0C722C1A7740066535E /* TestListController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestListController.xib; sourceTree = "<group>"; };
+		6436D0CE22C1CECB0066535E /* CellTestList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTestList.swift; sourceTree = "<group>"; };
+		6436D0D222C1CF290066535E /* CellTestList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellTestList.xib; sourceTree = "<group>"; };
+		6436D0D422C20A210066535E /* ControlEvent+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlEvent+Extension.swift"; sourceTree = "<group>"; };
 		643841D822AF86A20038B034 /* RootApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootApp.swift; sourceTree = "<group>"; };
 		644367C122ADF3B400924B41 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		644367C322AE0B7000924B41 /* UtConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtConst.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 				649ECE1322AE5663005973E3 /* UIColor+Extension.swift */,
 				641AE62F22A770F100C3CF6D /* UtHttp+Extension.swift */,
 				64882DEB22A8FF45008FD232 /* Observable+Extension.swift */,
+				6436D0D422C20A210066535E /* ControlEvent+Extension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -113,8 +120,8 @@
 		6436D0CA22C1A7990066535E /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				64D1790122B0EB9300932FDF /* TestViewController.swift */,
-				6436D0C622C1A7740066535E /* TestListController.swift */,
+				6436D0CC22C1CE610066535E /* view */,
+				6436D0CD22C1CE6F0066535E /* controller */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -124,8 +131,26 @@
 			children = (
 				64D1790222B0EB9300932FDF /* TestViewController.xib */,
 				6436D0C722C1A7740066535E /* TestListController.xib */,
+				6436D0D222C1CF290066535E /* CellTestList.xib */,
 			);
 			path = xib;
+			sourceTree = "<group>";
+		};
+		6436D0CC22C1CE610066535E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				6436D0CE22C1CECB0066535E /* CellTestList.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		6436D0CD22C1CE6F0066535E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				64D1790122B0EB9300932FDF /* TestViewController.swift */,
+				6436D0C622C1A7740066535E /* TestListController.swift */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 		644367C022ADF35A00924B41 /* root */ = {
@@ -268,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64E4C0CF22A4A91400F7E75F /* Assets.xcassets in Resources */,
+				6436D0D322C1CF290066535E /* CellTestList.xib in Resources */,
 				642BB08E22B3A5B000A4E639 /* Localizable.strings in Resources */,
 				64D1790422B0EB9300932FDF /* TestViewController.xib in Resources */,
 				6436D0C922C1A7740066535E /* TestListController.xib in Resources */,
@@ -365,8 +391,10 @@
 				64D178FD22B0A33500932FDF /* RootListViewController.swift in Sources */,
 				643841D922AF86A20038B034 /* RootApp.swift in Sources */,
 				64882DEE22A90D93008FD232 /* BnHttpResponse.swift in Sources */,
+				6436D0D522C20A210066535E /* ControlEvent+Extension.swift in Sources */,
 				649ECE1422AE5663005973E3 /* UIColor+Extension.swift in Sources */,
 				647B796222B9C96200658994 /* RootScanViewController.swift in Sources */,
+				6436D0CF22C1CECB0066535E /* CellTestList.swift in Sources */,
 				647B796522B9DDFA00658994 /* UIView+Extension.swift in Sources */,
 				641FDB2922BB5D22002BB5FC /* UIButton+Extension.swift in Sources */,
 				64D178FE22B0A33500932FDF /* RootNavigationController.swift in Sources */,

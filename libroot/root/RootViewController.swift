@@ -14,6 +14,7 @@ public class RootViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarUI()
+        self.view.backgroundColor=UIColor("#F8F8F8")
     }
     
     
@@ -75,7 +76,7 @@ public class RootViewController: UIViewController {
         }
     }
     
-    @objc private func quitCurrentController()->Void{
+    @objc private func quitCurrentController()->Void {
         self.navigationController?.popViewController(animated: true)
     }
     
