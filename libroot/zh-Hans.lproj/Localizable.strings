@@ -5,6 +5,9 @@
   Created by wangzezhi on 2019/6/14.
   Copyright © 2019 Dazhi528. All rights reserved.
 */
+//MARK: - 空页面
+"libroot_empty_list" = "暂无内容";
+
 //MARK: - 按钮
 "libroot_bt_ent" = "确 定";
 "libroot_bt_esc" = "关 闭";

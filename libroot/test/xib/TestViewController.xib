@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="swb-49-9vP">
-                    <rect key="frame" x="153" y="393" width="108" height="110"/>
+                    <rect key="frame" x="153" y="353" width="108" height="190"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-zW-zxA">
                             <rect key="frame" x="0.0" y="0.0" width="108" height="30"/>
@@ -35,6 +35,13 @@
                             <state key="normal" title="跳转到扫描页面"/>
                             <connections>
                                 <action selector="onClickTestToScanPage:" destination="-1" eventType="touchUpInside" id="f8P-Ef-usd"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCZ-oO-yYv">
+                            <rect key="frame" x="0.0" y="160" width="108" height="30"/>
+                            <state key="normal" title="跳转到列表页面"/>
+                            <connections>
+                                <action selector="onClickTestToListPage:" destination="-1" eventType="touchUpInside" id="9tL-zy-cTv"/>
                             </connections>
                         </button>
                     </subviews>

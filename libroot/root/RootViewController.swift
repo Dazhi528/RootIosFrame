@@ -63,12 +63,11 @@ public class RootViewController: UIViewController {
     }
     
     private func buildNavigationQuit() -> Void {
-        //icon_back
         if(self.navigationController?.viewControllers.count ??  0  > 1){
             let backButton = UIButton(type: .custom)
             backButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-            backButton.setImage(UIImage(named: "icon_back"), for: .normal)
-            backButton.setImage(UIImage(named: "icon_back"), for: .highlighted)
+            backButton.setImage(UIImage(named: "ico_arrow_back"), for: .normal)
+            backButton.setImage(UIImage(named: "ico_arrow_back"), for: .highlighted)
             backButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
             backButton.addTarget(self, action: #selector(quitCurrentController), for: .touchUpInside)
             let backItem = UIBarButtonItem(customView: backButton)

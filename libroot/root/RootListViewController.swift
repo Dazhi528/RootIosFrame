@@ -11,7 +11,7 @@ import DZNEmptyDataSet
 public class RootListViewController: RootViewController {
     open var booLoaded:Bool = false // 默认未加载
     open var booNeedRefresh: Bool = false //是否需要刷新
-    open var emptyContentHint:String = "" //空内容提示信息
+    open var emptyContentHint:String = NSLocalizedString("libroot_empty_list", comment: "") //空内容提示信息
     
 }
 

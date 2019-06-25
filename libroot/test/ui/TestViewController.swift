@@ -12,7 +12,7 @@ class TestViewController: RootViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "测试页面"
+        self.title = "测试主页"
     }
     
     @IBAction func onClickTestApiLogin(_ sender: UIButton) {
@@ -35,5 +35,10 @@ class TestViewController: RootViewController {
         //scanVC.fd_prefersNavigationBarHidden = true
         self.navigationController?.pushViewController(scanVC, animated: true)
     }
+    
+    @IBAction func onClickTestToListPage(_ sender: UIButton) {
+        self.navigationController?.pushViewController(TestListController(), animated: true)
+    }
+    
     
 }
