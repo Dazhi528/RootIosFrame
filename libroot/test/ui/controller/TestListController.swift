@@ -10,7 +10,8 @@ import RxCocoa
 
 class TestListController: RootListViewController {
     @IBOutlet weak var tabTest: UITableView!
-    let lsBn:[String] = ["新东方卡机司法局发就发甲案件发房间啊发发看大家发空", "2", "3"]
+    let lsBn:[String] = ["新东方卡机司法局发就发甲案件发房间啊发发看大家发空新东方卡机司法局发就发甲案件发房间啊发发看大家发空新东方卡机司法局发就发甲案件发房间啊发发看大家发空新东方卡机司法局发就发甲案件发房间啊发发看大家发空新东方卡机司法局发就发甲案件发房间啊发发看大家发空新东方卡机司法局发就发甲案件发房间啊发发看大家发空",
+                         "2", "3"]
 //    let lsBn:[String] = []
     
     override func viewDidLoad() {
