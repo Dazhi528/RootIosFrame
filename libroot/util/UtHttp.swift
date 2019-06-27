@@ -15,7 +15,7 @@ import ObjectMapper
 import SwiftHash
 import DeviceKit
 
-extension DefaultsKey {
+public extension DefaultsKey {
     static let keyBnUser = Key<BnUser>("keyBnUser")
 }
 

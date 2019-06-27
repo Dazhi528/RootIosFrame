@@ -14,24 +14,24 @@ public class RootScanViewController : LBXScanViewController {
         self.scanResultDelegate = nil
     }
     
-    let closeButton:UIButton = {
+    private let closeButton:UIButton = {
         let closeButton = UIButton(type: .custom)
         closeButton.size = CGSize(width: 60, height: 60)
         closeButton.titleLabel?.font = UtRoot.defaultBoldFontWithSize(14)
-        closeButton.setImagePosition(UIImage(named: "ico_scan_close"),
+        closeButton.setImagePosition(UIImage(named: "ico_scan_close", in: kBundleImage, compatibleWith: nil),
                                      NSLocalizedString("libroot_scan_close", comment: ""),
                                      .normal, .top, 10)
         return closeButton
     }()
     
-    let torchButton:UIButton = {
+    private let torchButton:UIButton = {
         let torchButton = UIButton(type: .custom)
         torchButton.size = CGSize(width: 60, height: 60)
         torchButton.titleLabel?.font = UtRoot.defaultBoldFontWithSize(14)
-        torchButton.setImagePosition(UIImage(named: "ico_scan_torch"),
+        torchButton.setImagePosition(UIImage(named: "ico_scan_torch", in: kBundleImage, compatibleWith: nil),
                                      NSLocalizedString("libroot_torch_open", comment: ""),
                                      .normal, .top, 10)
-        torchButton.setImagePosition(UIImage(named: "ico_scan_torch"),
+        torchButton.setImagePosition(UIImage(named: "ico_scan_torch", in: kBundleImage, compatibleWith: nil),
                                      NSLocalizedString("libroot_torch_close", comment: ""),
                                      .selected, .top, 10)
         return torchButton
@@ -66,7 +66,7 @@ public class RootScanViewController : LBXScanViewController {
         torchButton.addTarget(self, action: #selector(torchCtrl), for: .touchUpInside)
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         // 将显示时，隐藏导航条
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -79,23 +79,22 @@ public class RootScanViewController : LBXScanViewController {
         self.view.addSubview(torchButton)
     }
     
-    public override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // 将销毁时，显示导航条，不影响其他有导航条的页面
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     
-    
 }
 
 
 private extension RootScanViewController {
-    @objc func closeScan()->Void{
+    @objc private func closeScan()->Void{
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func torchCtrl()->Void{
+    @objc private func torchCtrl()->Void{
         torchButton.isSelected = !torchButton.isSelected
         self.scanObj?.setTorch(torch: torchButton.isSelected)
     }

@@ -16,8 +16,8 @@ import DZNEmptyDataSet
  * 备注：去除默认自带的分割线
  * self.tabTest.separatorStyle = .none
  */
-public class RootListViewController: RootViewController {
-    open var emptyContentHint:String = NSLocalizedString("libroot_empty_list", comment: "") //空内容提示信息
+open class RootListViewController: RootViewController {
+    public var emptyContentHint:String = NSLocalizedString("libroot_empty_list", comment: "") //空内容提示信息
     //    open var booLoaded:Bool = false // 默认未加载
     //    open var booNeedRefresh: Bool = false //是否需要刷新
     
@@ -34,9 +34,7 @@ extension RootListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
     
     // 空列表提示图片
     public func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-//        return UIImage(named: "ico_empty_list")
-        // 可代替上面的写法
-        return #imageLiteral(resourceName: "ico_empty_list")
+        return UIImage(named: "ico_empty_list", in: kBundleImage, compatibleWith: nil)
     }
     
 //    public func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {

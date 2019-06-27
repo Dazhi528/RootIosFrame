@@ -4,14 +4,25 @@
 # 如果不使用swift并且不想使用动态框架，下一行需要注释掉
 use_frameworks!
 
-target 'libroot' do
+# Demo用到
+target 'LibRootAndDemo' do
+  # 响应式编程
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  # UI布局
+  pod 'SnapKit'
+end
+
+
+# LibRoot库用到
+target 'LibRoot' do
   # 响应式编程
   pod 'RxSwift'
   pod 'RxCocoa'
   
   # UI布局
-  pod 'SnapKit'
-  
+#  pod 'SnapKit'
+
   # 网络请求
   pod 'Alamofire'
   pod 'RxAlamofire'

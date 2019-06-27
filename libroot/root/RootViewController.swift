@@ -8,10 +8,10 @@
 import UIKit
 import RxSwift
 
-public class RootViewController: UIViewController {
+open class RootViewController: UIViewController {
     public let disposeBag = DisposeBag()
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarUI()
         self.view.backgroundColor=UIColor("#F8F8F8")
@@ -67,8 +67,8 @@ public class RootViewController: UIViewController {
         if(self.navigationController?.viewControllers.count ??  0  > 1){
             let backButton = UIButton(type: .custom)
             backButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-            backButton.setImage(UIImage(named: "ico_arrow_back"), for: .normal)
-            backButton.setImage(UIImage(named: "ico_arrow_back"), for: .highlighted)
+            backButton.setImage(UIImage(named: "ico_arrow_back", in: kBundleImage, compatibleWith: nil), for: .normal)
+            backButton.setImage(UIImage(named: "ico_arrow_back", in: kBundleImage, compatibleWith: nil), for: .highlighted)
             backButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
             backButton.addTarget(self, action: #selector(quitCurrentController), for: .touchUpInside)
             let backItem = UIBarButtonItem(customView: backButton)

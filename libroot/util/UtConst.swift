@@ -31,3 +31,13 @@ public let kNavigationbarHeight:CGFloat = 44 + kSafeAreaInsets.top
  * ============全局颜色区============
  */
 public let navigationbar_bg="#17a0fe"
+
+
+
+
+/*
+ * ============库专用常量============
+ */
+private let imgPath = Bundle.main.path(forResource: "LibRoot",
+                                       ofType: "framework", inDirectory: "Frameworks") ?? ""
+let kBundleImage = Bundle.init(path: imgPath)

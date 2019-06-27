@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import LibRoot
 
 @UIApplicationMain
 class AppDelegate: RootApp {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // 扩展内容
         self.window=UIWindow.init(frame: UIScreen.main.bounds)
         let rootViewController=TestViewController()
