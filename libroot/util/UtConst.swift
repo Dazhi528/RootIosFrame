@@ -38,6 +38,6 @@ public let navigationbar_bg="#17a0fe"
 /*
  * ============库专用常量============
  */
-private let imgPath = Bundle.main.path(forResource: "LibRoot",
+private let resPath = Bundle.main.path(forResource: "LibRoot",
                                        ofType: "framework", inDirectory: "Frameworks") ?? ""
-let kBundleImage = Bundle.init(path: imgPath)
+let kBundleRes = Bundle.init(path: resPath)

@@ -18,7 +18,7 @@ public class RootScanViewController : LBXScanViewController {
         let closeButton = UIButton(type: .custom)
         closeButton.size = CGSize(width: 60, height: 60)
         closeButton.titleLabel?.font = UtRoot.defaultBoldFontWithSize(14)
-        closeButton.setImagePosition(UIImage(named: "ico_scan_close", in: kBundleImage, compatibleWith: nil),
+        closeButton.setImagePosition(UIImage(named: "ico_scan_close", in: kBundleRes, compatibleWith: nil),
                                      NSLocalizedString("libroot_scan_close", comment: ""),
                                      .normal, .top, 10)
         return closeButton
@@ -28,10 +28,10 @@ public class RootScanViewController : LBXScanViewController {
         let torchButton = UIButton(type: .custom)
         torchButton.size = CGSize(width: 60, height: 60)
         torchButton.titleLabel?.font = UtRoot.defaultBoldFontWithSize(14)
-        torchButton.setImagePosition(UIImage(named: "ico_scan_torch", in: kBundleImage, compatibleWith: nil),
+        torchButton.setImagePosition(UIImage(named: "ico_scan_torch", in: kBundleRes, compatibleWith: nil),
                                      NSLocalizedString("libroot_torch_open", comment: ""),
                                      .normal, .top, 10)
-        torchButton.setImagePosition(UIImage(named: "ico_scan_torch", in: kBundleImage, compatibleWith: nil),
+        torchButton.setImagePosition(UIImage(named: "ico_scan_torch", in: kBundleRes, compatibleWith: nil),
                                      NSLocalizedString("libroot_torch_close", comment: ""),
                                      .selected, .top, 10)
         return torchButton
