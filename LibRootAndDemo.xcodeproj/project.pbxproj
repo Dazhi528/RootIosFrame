@@ -186,9 +186,9 @@
 		64C959E222C451F000BE77C2 /* LibRoot */ = {
 			isa = PBXGroup;
 			children = (
+				64C959FF22C4528800BE77C2 /* root */,
 				64C959F322C4528800BE77C2 /* extension */,
 				64C959EE22C4528800BE77C2 /* model */,
-				64C959FF22C4528800BE77C2 /* root */,
 				64C959FA22C4528800BE77C2 /* util */,
 				64C95A1822C4529A00BE77C2 /* Assets.xcassets */,
 				64C95A1A22C452AF00BE77C2 /* Localizable.strings */,
@@ -733,6 +733,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dazhi.LibRoot;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -764,6 +765,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dazhi.LibRoot;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

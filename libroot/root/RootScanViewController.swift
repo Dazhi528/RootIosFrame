@@ -18,8 +18,8 @@ public class RootScanViewController : LBXScanViewController {
         let closeButton = UIButton(type: .custom)
         closeButton.size = CGSize(width: 60, height: 60)
         closeButton.titleLabel?.font = UtRoot.defaultBoldFontWithSize(14)
-        closeButton.setImagePosition(UIImage(named: "ico_scan_close", in: kBundleRes, compatibleWith: nil),
-                                     NSLocalizedString("libroot_scan_close", comment: ""),
+        closeButton.setImagePosition(UtRoot.getLibImage("ico_scan_close"),
+                                    UtRoot.getLibString("libroot_scan_close"),
                                      .normal, .top, 10)
         return closeButton
     }()
@@ -28,11 +28,11 @@ public class RootScanViewController : LBXScanViewController {
         let torchButton = UIButton(type: .custom)
         torchButton.size = CGSize(width: 60, height: 60)
         torchButton.titleLabel?.font = UtRoot.defaultBoldFontWithSize(14)
-        torchButton.setImagePosition(UIImage(named: "ico_scan_torch", in: kBundleRes, compatibleWith: nil),
-                                     NSLocalizedString("libroot_torch_open", comment: ""),
+        torchButton.setImagePosition(UtRoot.getLibImage("ico_scan_torch"),
+                                     UtRoot.getLibString("libroot_torch_open"),
                                      .normal, .top, 10)
-        torchButton.setImagePosition(UIImage(named: "ico_scan_torch", in: kBundleRes, compatibleWith: nil),
-                                     NSLocalizedString("libroot_torch_close", comment: ""),
+        torchButton.setImagePosition(UtRoot.getLibImage("ico_scan_torch"),
+                                     UtRoot.getLibString("libroot_torch_close"),
                                      .selected, .top, 10)
         return torchButton
     }()
@@ -41,7 +41,7 @@ public class RootScanViewController : LBXScanViewController {
         super.viewDidLoad()
         //
         self.scanStyle?.anmiationStyle = .LineMove
-        self.scanStyle?.animationImage = UIImage(named:"ico_scan_line")
+        self.scanStyle?.animationImage = UtRoot.getLibImage("ico_scan_line")
         self.scanStyle?.colorAngle = UIColor("#358EE0")
         self.scanStyle?.photoframeAngleW = 24
         self.scanStyle?.photoframeAngleH = 24

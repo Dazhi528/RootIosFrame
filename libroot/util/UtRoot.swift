@@ -5,8 +5,7 @@
 //  Created by wangzezhi on 2019/6/5.
 //  Copyright © 2019 Dazhi528. All rights reserved.
 //
-
-import Foundation
+import UIKit
 import SVProgressHUD
 
 public class UtRoot {
@@ -27,6 +26,34 @@ public class UtRoot {
     public static func defaultBoldFontWithSize(_ size:CGFloat) -> UIFont{
         return UIFont(name: "PingFangSC-Medium", size: size) ?? UIFont.boldSystemFont(ofSize:size)
     }
+    
+    /*
+     * ========获得资源文件========
+     */
+    // 仅用于本地
+    static func getLibString(_ name: String) -> String {
+        return getString(name, bundle: kBundleRes)
+    }
+    static func getLibImage(_ name: String) -> UIImage? {
+        return getImage(name, bundle: kBundleRes)
+    }
+    
+
+    public static func getString(_ name: String, bundle: Bundle?=nil) -> String {
+        if(bundle==nil){
+            return NSLocalizedString(name, comment: "")
+        }else {
+             return NSLocalizedString(name, bundle: bundle!, comment: "")
+        }
+    }
+    public static func getImage(_ name: String, bundle: Bundle?=nil) -> UIImage? {
+        if(bundle==nil){
+            return UIImage(named: name)
+        }else {
+            return UIImage(named: name, in: bundle, compatibleWith: nil)
+        }
+    }
+    
     
     /*
      * ========日志输出========

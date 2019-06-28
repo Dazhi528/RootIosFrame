@@ -32,11 +32,11 @@ open class RootViewController: UIViewController {
         let dialog=UIAlertController(title: nil, message: msg, preferredStyle: .alert)
         // 创建动作
         let actionEnt=UIAlertAction(
-            title: ent ?? NSLocalizedString("libroot_bt_ent", comment: ""),
+            title: ent ?? UtRoot.getLibString("libroot_bt_ent"),
             style: .default, handler: entCall)
         var actionEsc: UIAlertAction?=nil
         if(esc != nil){
-            actionEsc=UIAlertAction(title: esc=="" ? NSLocalizedString("libroot_bt_esc", comment: "") : esc,
+            actionEsc=UIAlertAction(title: esc=="" ? UtRoot.getLibString("libroot_bt_esc") : esc,
                                     style: .cancel, handler: escCall)
         }
         // 添加动作
@@ -45,8 +45,6 @@ open class RootViewController: UIViewController {
             dialog.addAction(actionEsc!)
         }
         // 显示对话框
-//        weak var weakSelf = self
-//        weakSelf?.present(dialog, animated: true, completion: nil)
         self.present(dialog, animated: true, completion: nil)
     }
         
@@ -67,8 +65,8 @@ open class RootViewController: UIViewController {
         if(self.navigationController?.viewControllers.count ??  0  > 1){
             let backButton = UIButton(type: .custom)
             backButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-            backButton.setImage(UIImage(named: "ico_arrow_back", in: kBundleRes, compatibleWith: nil), for: .normal)
-            backButton.setImage(UIImage(named: "ico_arrow_back", in: kBundleRes, compatibleWith: nil), for: .highlighted)
+            backButton.setImage(UtRoot.getLibImage("ico_arrow_back"), for: .normal)
+            backButton.setImage(UtRoot.getLibImage("ico_arrow_back"), for: .highlighted)
             backButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
             backButton.addTarget(self, action: #selector(quitCurrentController), for: .touchUpInside)
             let backItem = UIBarButtonItem(customView: backButton)
