@@ -47,7 +47,8 @@ public class UtHttp {
         httpHeadStr.append("/")
         httpHeadStr.append(appVersion)
         httpHeadStr.append("(")
-        httpHeadStr.append(Device().name) // UIDevice.current.model == iPhone
+        // UIDevice.current.model == iPhone
+        httpHeadStr.append(Device.current.name ?? "")
         httpHeadStr.append("; ")
         httpHeadStr.append(UIDevice.current.systemName)
         httpHeadStr.append(":")

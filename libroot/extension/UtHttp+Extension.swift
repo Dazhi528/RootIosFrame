@@ -7,11 +7,11 @@
 //
 import KeychainSwift
 
-extension UtHttp {
+public extension UtHttp {
     private static let key = "com.dazhi.libroot.udid"
     private static var _udid:String?
     
-    public static func getUdid() -> String {
+    static func getUdid() -> String {
         if let udid = _udid {
             return udid
         }

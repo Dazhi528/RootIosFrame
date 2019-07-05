@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import LibRoot
 
 @UIApplicationMain
 class AppDelegate: RootApp {

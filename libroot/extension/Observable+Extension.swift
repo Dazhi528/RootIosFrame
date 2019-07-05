@@ -26,7 +26,7 @@ public extension Error {
 }
 
 // 扩展Observable：增加模型映射方法
-public extension Observable where E: Any {
+public extension Observable where Element: Any {
     
     //将JSON数据转成对象
     func mapperObject<T>(type: T.Type) -> Observable<T> where T:Mappable {
@@ -52,7 +52,7 @@ public extension Observable where E: Any {
     
     // 自定义订阅
     func customSubscribe(_ disposeBag: DisposeBag,
-        next: ((E) -> Void)? = nil,
+        next: ((Element) -> Void)? = nil,
         error: ((Error) -> Void)? = nil,
         completed: (() -> Void)? = nil) {
         return self.subscribe(onNext: next, onError: { (er) in

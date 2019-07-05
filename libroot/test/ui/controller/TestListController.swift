@@ -7,7 +7,6 @@
 //
 import UIKit
 import RxCocoa
-import LibRoot
 
 class TestListController: RootListViewController {
     @IBOutlet weak var tabTest: UITableView!
@@ -19,6 +18,7 @@ class TestListController: RootListViewController {
         super.viewDidLoad()
         //
         self.title="空列表页"
+        emptyContentHint="也能调用提示了！"
         // 设置空数据源和代理
         self.tabTest.emptyDataSetSource=self
         self.tabTest.emptyDataSetDelegate=self

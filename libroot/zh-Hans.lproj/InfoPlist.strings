@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  LibRoot
+  Created by wangzezhi on 2019/7/5.
+  Copyright © 2019 Dazhi528. All rights reserved.
+*/
+// App名称
+CFBundleDisplayName = "基础库";
+
+// 相机权限
+NSCameraUsageDescription  = "App需要访问你的相机来获取照片，扫描条码或者二维码";

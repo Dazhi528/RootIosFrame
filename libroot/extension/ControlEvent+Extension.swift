@@ -5,15 +5,14 @@
 //  Created by wangzezhi on 2019/6/25.
 //  Copyright © 2019 Dazhi528. All rights reserved.
 //
-
-import RxCocoa
 import RxSwift
+import RxCocoa
 
-public extension ControlEvent where E: Any {
+public extension ControlEvent where Element: Any {
     
     // 自定义订阅
     func customSubscribe(_ disposeBag: DisposeBag,
-                         next: ((E) -> Void)? = nil,
+                         next: ((Element) -> Void)? = nil,
                          error: ((Error) -> Void)? = nil,
                          completed: (() -> Void)? = nil) {
         return self.subscribe(onNext: next, onError: { (er) in

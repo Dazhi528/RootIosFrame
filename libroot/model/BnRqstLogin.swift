@@ -10,8 +10,8 @@ import ObjectMapper
 
 // 用户登录接口响应类
 public struct BnRqstLogin : Mappable {
-    var strUserName: String?
-    var strUserPass: String?
+    public var strUserName: String? // 外部可读写
+    public var strUserPass: String?
     private var noUse: String=""
     
     

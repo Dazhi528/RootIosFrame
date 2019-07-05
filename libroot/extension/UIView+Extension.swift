@@ -143,16 +143,3 @@ public extension UIView {
     }
 }
 
-
-/*
- * nib文件加载协议
- */
-public protocol NibLoad {
-}
-public extension NibLoad where Self : UIView {
-    
-    static func loadNib(_ nibNmae :String? = nil) -> Self {
-        return Bundle.main.loadNibNamed(nibNmae ?? "\(self)", owner: nil, options: nil)?.first as! Self
-    }
-    
-}

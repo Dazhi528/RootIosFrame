@@ -7,9 +7,9 @@
 //
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
-    public convenience init(_ hexString: String, alpha: Float = 1.0) {
+    convenience init(_ hexString: String, alpha: Float = 1.0) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
         Scanner(string: hex).scanHexInt32(&int)
@@ -26,7 +26,7 @@ extension UIColor {
     }
     
     
-    public func asImage(_ size: CGSize) -> UIImage {
+    func asImage(_ size: CGSize) -> UIImage {
         UIGraphicsBeginImageContext(size)
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(self.cgColor)

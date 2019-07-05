@@ -19,7 +19,7 @@ open class RootViewController: UIViewController {
     
     
     /*
-     * 常用消息窗口
+     * 常用消息窗口（只能调用，不能重写）
      * 调用实例：
      * self.msgBoxShow(strBnUser, esc: "", escCall: { _ in
      *  UtRoot.toastShort("销毁方法回调")

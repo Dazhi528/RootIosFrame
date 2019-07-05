@@ -7,7 +7,6 @@
 //
 import UIKit
 import RxSwift
-import LibRoot
 
 class TestViewController: RootViewController {
     
@@ -32,13 +31,14 @@ class TestViewController: RootViewController {
     
     @IBAction func onClickTestToScanPage(_ sender: UIButton) {
         let scanVC = RootScanViewController()
-       // scanVC.scanResultDelegate = self
-        //scanVC.fd_prefersNavigationBarHidden = true
+        // scanVC.scanResultDelegate = self
+        // scanVC.fd_prefersNavigationBarHidden = true
         self.navigationController?.pushViewController(scanVC, animated: true)
     }
     
     @IBAction func onClickTestToListPage(_ sender: UIButton) {
-        self.navigationController?.pushViewController(TestListController(), animated: true)
+        self.navigationController?
+            .pushViewController(TestListController(), animated: true)
     }
     
     

@@ -17,7 +17,7 @@ public let kSafeAreaInsets:UIEdgeInsets = {
     if #available(iOS 12.0, *){
         return UIWindow().safeAreaInsets
     }
-    if Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) {
+    if Device.current.isOneOf([.iPhoneX, .simulator(.iPhoneX)]) {
         return UIEdgeInsets(top: 20, left: 0, bottom: 34, right: 0)
     }
     return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
