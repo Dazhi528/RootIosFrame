@@ -8,10 +8,29 @@
 import swiftScan
 import AVFoundation
 
+public protocol ProtScanResultDelegate: class {
+    func scanResult(_ strResult: String)
+}
+
+extension RootScanViewController: LBXScanViewControllerDelegate {
+    //处理扫描结果
+    public func scanFinished(scanResult: LBXScanResult, error: String?) {
+        if error != nil {
+            protScanResultDelegate?.scanResult("")
+            return
+        }
+        if let resultStr = scanResult.strScanned {
+            protScanResultDelegate?.scanResult(resultStr)
+        }
+    }
+}
+
 public class RootScanViewController : LBXScanViewController {
+    open weak var protScanResultDelegate: ProtScanResultDelegate?
     
     deinit {
         self.scanResultDelegate = nil
+        self.protScanResultDelegate = nil
     }
     
     private let closeButton:UIButton = {
@@ -39,6 +58,8 @@ public class RootScanViewController : LBXScanViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        //
+        self.scanResultDelegate = self
         //
         self.scanStyle?.anmiationStyle = .LineMove
         self.scanStyle?.animationImage = UtRoot.getLibImage("ico_scan_line")

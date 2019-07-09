@@ -16,7 +16,7 @@ class TestViewController: RootViewController {
     }
     
     @IBAction func onClickTestApiLogin(_ sender: UIButton) {
-        UtHttp.api("TmsLogin", BnRqstLogin("simon", UtHttp.md5Mid16("123456")))
+        UtHttp.api("TmsLogin", BnRqstLogin("simon", UtHttp.md5Mid16("12345")))
             .mapperObject(type: BnUser.self) // 解析成BnUser对象
             .observeOn(MainScheduler.instance) // 切换到主线程
             .customSubscribe(disposeBag ,next: { bnRsps in
@@ -31,8 +31,7 @@ class TestViewController: RootViewController {
     
     @IBAction func onClickTestToScanPage(_ sender: UIButton) {
         let scanVC = RootScanViewController()
-        // scanVC.scanResultDelegate = self
-        // scanVC.fd_prefersNavigationBarHidden = true
+        scanVC.protScanResultDelegate=self
         self.navigationController?.pushViewController(scanVC, animated: true)
     }
     
@@ -42,4 +41,16 @@ class TestViewController: RootViewController {
     }
     
     
+}
+
+
+extension TestViewController: ProtScanResultDelegate {
+    func scanResult(_ strResult: String) {
+        if(strResult.isEmpty){
+            UtRoot.toastShort("扫描失败")
+            return
+        }
+        //
+        UtRoot.toastShort(strResult)
+    }
 }

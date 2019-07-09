@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4CA22A79CD61EBD4027E4A92 /* Pods_LibRoot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD3E788CC312EDD63F536C2 /* Pods_LibRoot.framework */; };
+		6424770C22D3323800A5E2F3 /* SVProgressHUD+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6424770B22D3323800A5E2F3 /* SVProgressHUD+Extension.swift */; };
 		644B673222CEDB8A00B66BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 644B673122CEDB8A00B66BD3 /* Assets.xcassets */; };
 		644B675322CEDBFA00B66BD3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644B673D22CEDBF900B66BD3 /* UIColor+Extension.swift */; };
 		644B675422CEDBFA00B66BD3 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644B673E22CEDBF900B66BD3 /* UIButton+Extension.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		11AAFC26D3B18E191B952E2C /* Pods-LibRoot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibRoot.release.xcconfig"; path = "Target Support Files/Pods-LibRoot/Pods-LibRoot.release.xcconfig"; sourceTree = "<group>"; };
 		4AD3E788CC312EDD63F536C2 /* Pods_LibRoot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LibRoot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6424770B22D3323800A5E2F3 /* SVProgressHUD+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SVProgressHUD+Extension.swift"; sourceTree = "<group>"; };
 		644B672722CEDB8800B66BD3 /* LibRoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibRoot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		644B673122CEDB8A00B66BD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		644B673622CEDB8A00B66BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				644B674022CEDBF900B66BD3 /* Observable+Extension.swift */,
 				644B674122CEDBF900B66BD3 /* UtHttp+Extension.swift */,
 				644B674222CEDBF900B66BD3 /* ControlEvent+Extension.swift */,
+				6424770B22D3323800A5E2F3 /* SVProgressHUD+Extension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -179,10 +182,10 @@
 		644B674D22CEDBFA00B66BD3 /* root */ = {
 			isa = PBXGroup;
 			children = (
+				644B675122CEDBFA00B66BD3 /* RootApp.swift */,
 				644B674E22CEDBFA00B66BD3 /* RootNavigationController.swift */,
 				644B674F22CEDBFA00B66BD3 /* RootViewController.swift */,
 				644B675022CEDBFA00B66BD3 /* RootScanViewController.swift */,
-				644B675122CEDBFA00B66BD3 /* RootApp.swift */,
 				644B675222CEDBFA00B66BD3 /* RootListViewController.swift */,
 			);
 			path = root;
@@ -396,6 +399,7 @@
 				644B675D22CEDBFA00B66BD3 /* BnHttpResponse.swift in Sources */,
 				644B675322CEDBFA00B66BD3 /* UIColor+Extension.swift in Sources */,
 				644B676122CEDBFA00B66BD3 /* RootNavigationController.swift in Sources */,
+				6424770C22D3323800A5E2F3 /* SVProgressHUD+Extension.swift in Sources */,
 				644B675C22CEDBFA00B66BD3 /* UtConst.swift in Sources */,
 				644B675F22CEDBFA00B66BD3 /* BnUser.swift in Sources */,
 				644B675622CEDBFA00B66BD3 /* Observable+Extension.swift in Sources */,
