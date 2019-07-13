@@ -40,4 +40,7 @@ target 'LibRoot' do
   
   #扫描条码和二维码
   pod 'swiftScan'
+
+  #屏幕侧滑返回手势
+  pod 'FDFullscreenPopGesture'
 end

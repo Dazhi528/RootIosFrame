@@ -6,6 +6,7 @@
 //  Copyright © 2019 Dazhi528. All rights reserved.
 //
 import swiftScan
+import FDFullscreenPopGesture
 import AVFoundation
 
 public protocol ProtScanResultDelegate: class {
@@ -85,13 +86,17 @@ public class RootScanViewController : LBXScanViewController {
         torchButton.bottom = kScreenHeight - kSafeAreaInsets.bottom - 55
         closeButton.addTarget(self, action: #selector(closeScan), for: .touchUpInside)
         torchButton.addTarget(self, action: #selector(torchCtrl), for: .touchUpInside)
+        // 全局手势
+        self.fd_prefersNavigationBarHidden = true // 隐藏导航条
+        self.fd_interactivePopDisabled = true // 当前页面禁用返回手势(本页用按钮返回)
     }
     
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        // 将显示时，隐藏导航条
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
+    // self.fd_prefersNavigationBarHidden = true //全局手势库这句代替下面的隐藏
+//    override public func viewWillAppear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//        // 将显示时，隐藏导航条
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+//    }
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
